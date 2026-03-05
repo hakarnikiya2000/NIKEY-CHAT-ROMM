@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOD OF SERVER · cyber dashboard</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- loading screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loader"></div>
+    <div class="glitch-text"># BOOT_SEQUENCE</div>
+  </div>
+
+  <!-- main app wrapper (hidden until login) -->
+  <div id="app" class="app hidden">
+    <!-- sidebar -->
+    <aside class="sidebar glass">
+      <div class="logo">
+        <i class="fas fa-server"></i> GOD<span>OF</span>SERVER
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-item active" data-page="dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+        <a href="#" class="nav-item" data-page="private-chat"><i class="fas fa-comment-dots"></i><span>Private Chat</span></a>
+        <a href="#" class="nav-item" data-page="group-chat"><i class="fas fa-users"></i><span>Group Chat</span></a>
+        <a href="#" class="nav-item" data-page="profile"><i class="fas fa-user-circle"></i><span>Profile</span></a>
+        <a href="#" class="nav-item" data-page="settings"><i class="fas fa-cog"></i><span>Settings</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="online-indicator"><i class="fas fa-circle"></i> 512 online</span>
+      </div>
+    </aside>
+
+    <!-- main content area -->
+    <main class="main-content">
+      <!-- top header -->
+      <header class="top-header glass">
+        <div class="header-left">
+          <span class="welcome-msg"></span> <!-- typing animation fills here -->
+        </div>
+        <div class="header-right">
+          <i class="fas fa-bell"></i>
+          <div class="profile-icon"><i class="fas fa-user-astronaut"></i></div>
+        </div>
+      </header>
+
+      <!-- pages container -->
+      <div id="pages" class="pages">
+        <!-- dashboard page -->
+        <div class="page active" id="dashboard">
+          <h2 class="page-title"><i class="fas fa-tachometer-alt"></i> DASHBOARD</h2>
+          <div class="dashboard-grid">
+            <div class="card glass active-members">
+              <h3><i class="fas fa-user-friends"></i> ACTIVE MEMBERS</h3>
+              <ul class="member-list">
+                <li><i class="fas fa-circle green-dot"></i> Nikiya_Prime</li>
+                <li><i class="fas fa-circle green-dot"></i> cyber_v01d</li>
+                <li><i class="fas fa-circle green-dot"></i> raven_42</li>
+                <li><i class="fas fa-circle green-dot"></i> ghost_in_shell</li>
+                <li><i class="fas fa-circle green-dot"></i> z3r0_cool</li>
+              </ul>
+            </div>
+            <div class="card glass server-stats">
+              <h3>⚡ SERVER GODS</h3>
+              <p>Powered by Cyber God Nikiya ⚡</p>
+              <div class="progress"><span style="width:78%">CPU 78%</span></div>
+              <div class="progress"><span style="width:92%">MEM 92%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- private chat page -->
+        <div class="page" id="private-chat">
+          <h2 class="page-title"><i class="fas fa-comment-dots"></i> PRIVATE CHAT</h2>
+          <div class="chat-container glass">
+            <div class="chat-side">
+              <input type="text" placeholder="search contact..." class="search-input">
+              <div class="contact active">💀 Nikiya <small>online</small></div>
+              <div class="contact">👾 raven_42</div>
+              <div class="contact">🤖 ghost</div>
+            </div>
+            <div class="chat-main">
+              <div class="chat-messages" id="private-msg-area">
+                <div class="message received"><span>Nikiya: ready to hack? <span class="timestamp">12:04</span></span></div>
+                <div class="message sent"><span>i'm in. <span class="timestamp">12:05</span></span></div>
+              </div>
+              <div class="chat-input-area">
+                <input type="text" id="private-msg-input" placeholder="type your message...">
+                <button id="private-send"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- group chat page (separate vibe) -->
+        <div class="page" id="group-chat">
+          <h2 class="page-title"><i class="fas fa-users"></i> GROUP CHAT: CYBER_CORE</h2>
+          <div class="group-chat-container glass group-theme">
+            <div class="group-members">
+              <h4>MEMBERS ONLINE (6)</h4>
+              <ul><li>Nikiya (admin)</li><li>zero_cool</li><li>acid_burn</li><li>crash_override</li><li>cerealkiller</li><li>phantom</li></ul>
+            </div>
+            <div class="group-chat-area">
+              <div class="chat-messages" id="group-msg-area">
+                <div class="message group-msg"><span>Nikiya: all good? <span class="timestamp">12:10</span></span></div>
+                <div class="message group-msg"><span>acid_burn: deploying ...<span class="timestamp">12:11</span></span></div>
+              </div>
+              <div class="chat-input-area">
+                <input type="text" id="group-msg-input" placeholder="group message...">
+                <button id="group-send"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- profile page -->
+        <div class="page" id="profile">
+          <h2 class="page-title"><i class="fas fa-user-circle"></i> PROFILE</h2>
+          <div class="profile-card glass">
+            <div class="profile-avatar">
+              <img id="profile-preview" src="https://via.placeholder.com/100/0f172a/00ff99?text=AV" alt="avatar">
+              <label for="avatar-upload" class="upload-btn"><i class="fas fa-camera"></i> upload</label>
+              <input type="file" id="avatar-upload" accept="image/*" hidden>
+            </div>
+            <div class="profile-fields">
+              <label>display name</label>
+              <input type="text" id="profile-name" value="CYBER_NIKIYA" class="neon-input">
+              <label>bio</label>
+              <textarea id="profile-bio" rows="3" class="neon-input">⚡ god of server • code runner</textarea>
+              <button id="save-profile" class="neon-btn"><i class="fas fa-save"></i> save changes</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- settings page -->
+        <div class="page" id="settings">
+          <h2 class="page-title"><i class="fas fa-cog"></i> SETTINGS</h2>
+          <div class="settings-card glass">
+            <div class="setting-row"><span><i class="fas fa-moon"></i> dark/light mode</span> <label class="switch"><input type="checkbox" id="theme-toggle"><span class="slider"></span></label></div>
+            <div class="setting-row"><span><i class="fas fa-bell"></i> notifications</span> <label class="switch"><input type="checkbox" checked><span class="slider"></span></label></div>
+            <div class="setting-row"><span><i class="fas fa-key"></i> change password</span> <button class="small-btn">open form</button></div>
+            <div class="setting-row"><span><i class="fas fa-sign-out-alt"></i> logout</span> <button id="logout-btn" class="small-btn logout">logout</button></div>
+          </div>
+          <!-- hidden change password (simulated) -->
+          <div class="password-form glass hidden" id="password-form">
+            <input type="password" placeholder="current pass"><br>
+            <input type="password" placeholder="new pass"><br>
+            <button class="neon-btn small">update</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- LOGIN MODAL (floating, initially visible) -->
+  <div id="login-modal" class="login-modal">
+    <div class="login-card glass">
+      <h2><i class="fas fa-fingerprint"></i> GOD OF SERVER</h2>
+      <p class="cyber-sub">⚡ AUTHENTICATION</p>
+      <input type="email" id="login-email" placeholder="email (cyber@domain)" class="neon-input">
+      <input type="password" id="login-password" placeholder="password" class="neon-input">
+      <div id="login-error" class="error-msg"></div>
+      <button id="login-btn" class="neon-btn login-btn"><i class="fas fa-sign-in-alt"></i> enter the grid</button>
+      <div class="hint">demo: any non-empty email/pass</div>
+    </div>
+  </div>
+
+  <!-- floating support chat button -->
+  <div class="support-floating">
+    <div class="support-bubble" id="support-bubble"><i class="fas fa-headset"></i></div>
+    <div class="support-window glass hidden" id="support-window">
+      <div class="support-header">support <span class="online"><i class="fas fa-circle"></i> online</span></div>
+      <div class="support-msgs" id="support-msgs">
+        <div class="msg support">how can i help? 🟢</div>
+      </div>
+      <div class="support-input-area">
+        <input type="text" id="support-input" placeholder="type...">
+        <button id="support-send"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
